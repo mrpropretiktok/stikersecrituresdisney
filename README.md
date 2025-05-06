@@ -10,12 +10,13 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: #fdf6f6;
-      color: #333;
+      background: #ffffff;
+      color: #000000;
       text-align: center;
     }
     header {
-      background: #ffc107;
+      background: #000000;
+      color: white;
       padding: 20px;
       font-size: 1.8rem;
       font-weight: bold;
@@ -83,7 +84,7 @@
   <header>Stickers Prénom - Style Disney ✨</header>
   <main>
     <p>Crée un sticker magique avec le prénom de ton enfant, en écriture Disney !</p>
-    <p><strong>Prix : 3 € par sticker – frais de port offerts !</strong></p>
+    <p><strong>Prix : 3 € par sticker + 2 € de frais de port</strong></p>
 
     <input type="text" id="prenomInput" placeholder="Entre un prénom..." oninput="updatePreview()" />
     <div class="disney-preview" id="preview">Emma</div>
@@ -139,8 +140,8 @@
         div.textContent = `${item} (Sticker Disney - 3 €)`;
         cartItems.appendChild(div);
       });
-      const total = panier.length * 3;
-      totalDisplay.textContent = `Total : ${total} € (frais de port offerts)`;
+      const total = panier.length * 3 + 2;
+      totalDisplay.textContent = `Total : ${total} € (dont 2 € de frais de port)`;
     }
 
     function validerCommande() {
@@ -149,7 +150,7 @@
         return;
       }
       const total = panier.length * 3;
-      const message = encodeURIComponent(`Bonjour, je souhaite commander les stickers suivants :\n- ${panier.join('\n- ')}\n\nTotal à payer : ${total} € (frais de port inclus)`);
+      const message = encodeURIComponent(`Bonjour, je souhaite commander les stickers suivants :\n- ${panier.join('\n- ')}\n\nTotal à payer : ${total} € (dont 2 € de frais de port)`);
       window.location.href = `mailto:j.flinois62@gmail.com?subject=Commande de stickers Disney&body=${message}`;
     }
   </script>
