@@ -86,7 +86,7 @@
     <p>Crée un sticker magique avec le prénom de ton enfant, en écriture Disney !</p>
     <p><strong>Prix : 3 € par sticker + 2 € de frais de port</strong></p>
 
-    <input type="text" id="prenomInput" placeholder="Entre un prénom..." oninput="updatePreview()" />
+    <input type="text" id="prenomInput" maxlength="11" placeholder="Entre un prénom..." oninput="updatePreview()" />
     <div class="disney-preview" id="preview">Emma</div>
     <button onclick="addToCart()">Ajouter au panier</button>
 
@@ -119,6 +119,10 @@
       const input = document.getElementById('prenomInput').value.trim();
       if (!input) {
         alert("Entre un prénom pour l'ajouter au panier.");
+        return;
+      }
+      if (input.length > 11) {
+        alert("Le prénom ne peut pas dépasser 11 caractères.");
         return;
       }
       panier.push(input);
